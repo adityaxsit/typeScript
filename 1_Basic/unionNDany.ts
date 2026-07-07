@@ -15,3 +15,4 @@ for(let order of orders){
         currentOrder=order;
     }
 }
+console.log(currentOrder);
