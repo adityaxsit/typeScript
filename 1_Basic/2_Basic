@@ -1,1 +1,9 @@
-type inf
+//type inference
+function greet(name){
+ //infrenece--any type
+}
+
+//type annotation
+function greet2(name:string){
+//annotaton-type is given
+}
