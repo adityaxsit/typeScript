@@ -1,18 +1,18 @@
 function pass(kind:string | number){
-    if(typeof kind==='string' ){
+    if(typeof kind==='string' ){  //giving the proof that it is string = type Narrrowing
         return `password ${kind}`;
     }
     return `password: ${kind}`;
 }
 
-function gotPass(msg?:string){
-    if(msg){
+function gotPass(msg?:string){  //truthiness Narrowing: actually it means : msg:string|undefined
+if(msg){
         return `Available pass ${msg}`;
     }
     return `Did not got yet`;
 }
 
-function passLevel(type:"easy" | "medium" | "hard" 
+function passLevel(type:"easy" | "medium" | "hard"   //literal narrowing
     | number){
         if(type==="easy"){
             return `Password is easy`;
@@ -22,7 +22,7 @@ function passLevel(type:"easy" | "medium" | "hard"
         }
         return `only numbers in password`;
     }
-
+  //instanceof Narrowing
 class insta{
     pswrd(){
         return `instgram password`;
@@ -41,13 +41,13 @@ function pswrd(platform: insta | facebook){
     
 }
 
-//khud se type bnana
+//khud se type bnana(User Defined Type Guard)
 type pass={
     type:string;
     length:number;
 }
 
-function anyPass(obj:any):obj is pass{
+function anyPass(obj:any):obj is pass{   //obj is pass means-obejct is defines of type pass
     return (
         typeof obj==="object" &&
         obj!==null &&
@@ -69,7 +69,7 @@ type instaPass={type:"insta"; story:"reel"};
 type wpPass={type:"wp"; status:"quotes"};
 type fbPass={type:"fb"; post:"pic"};
 
-type platform=instaPass | wpPass | fbPass;
+type platform=instaPass | wpPass | fbPass;  //all the three object have common prop: type : called Discriminant
 
 function accessPass(handle:platform){
     switch(handle.type){
@@ -84,11 +84,14 @@ function accessPass(handle:platform){
             break;
     }
 }
+
+//operator narrowing
 function getEx(platform: instaPass | wpPass){
     if("status" in platform){
         // belongs to whatsapp
     }
 }
+
 
 function isStringArray(arr:unknown):arr is string[]{
     //unknown means avi k liye pta nhi h but agr aage kvi array 
