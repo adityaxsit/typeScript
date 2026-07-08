@@ -92,7 +92,7 @@ function getEx(platform: instaPass | wpPass){
     }
 }
 
-
+//unknown + type guard
 function isStringArray(arr:unknown):arr is string[]{
     //unknown means avi k liye pta nhi h but agr aage kvi array 
     // k prop use kre toh phle define kr de type 
