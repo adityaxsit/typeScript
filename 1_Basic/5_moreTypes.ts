@@ -1,6 +1,6 @@
 let response:any="42";
 //still no type is confirmed for respomse
-let numericLength:number=(response as string).length;//forecefull type converson
+let numericLength:number=(response as string).length;//forecefull type assertion(can be called conversion)
 
 
 //ex
